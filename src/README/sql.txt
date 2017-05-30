@@ -1,0 +1,54 @@
+## 数据库名字：CsdnDb;
+-- 专家表
+DROP TABLE IF EXISTS `expert`;
+CREATE TABLE `expert` (
+  `id` varchar(255) NOT NULL,
+  `id_expert` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `headImg` varchar(255) DEFAULT NULL,
+  `localtion` varchar(255) DEFAULT NULL,
+  `job` varchar(255) DEFAULT NULL,
+  `articleNums` varchar(10) DEFAULT NULL,
+  `readNums` varchar(10) DEFAULT NULL,
+  `createTime` varchar(20) DEFAULT NULL,
+  `stamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  `spare1` varchar(255) DEFAULT NULL,
+  `spare2` varchar(255) DEFAULT NULL,
+  `typeId` tinyint(4) DEFAULT NULL,
+  `typeName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_expert` (`id_expert`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 用户表
+DROP TABLE IF EXISTS `author`;
+CREATE TABLE `author` (
+  `id` varchar(100) NOT NULL,
+  `id_author` varchar(100) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `headImg` varchar(255) DEFAULT NULL,
+  `viewNums` varchar(10) DEFAULT NULL,
+  `points` varchar(10) DEFAULT NULL,
+  `rank` varchar(10) DEFAULT NULL,
+  `originalNums` varchar(10) DEFAULT NULL,
+  `repuishNums` varchar(10) DEFAULT NULL,
+  `translateNums` varchar(10) DEFAULT NULL,
+  `commentNums` varchar(10) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  `descb` varchar(500) DEFAULT NULL,
+  `isBlogExpert` tinyint(1) NOT NULL,
+  `isPreBlogExpert` tinyint(1) NOT NULL,
+  `isPersist` tinyint(1) NOT NULL,
+  `isColumnUp` tinyint(1) NOT NULL,
+  `isBlogStars` tinyint(1) NOT NULL,
+  `isMicrMvp` tinyint(1) NOT NULL,
+  `blogColumns` text,
+  `createTime` varchar(100) DEFAULT NULL,
+  `stamp` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `spare1` varchar(255) DEFAULT NULL,
+  `spare2` varchar(255) DEFAULT NULL,
+  `fromExpert` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_author` (`id_author`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

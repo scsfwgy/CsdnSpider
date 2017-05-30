@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quartz> 
+
+<!-- 爬虫博客专家 -->
+<job>
+    <job-detail>
+      <name>ExpertListSpierTask</name>
+      <group>group1</group>
+      <job-class>com.gaoyuan.timer.ExpertListSpierTask</job-class>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>ExpertListSpierTask</name>
+        <group>group1</group>
+        <job-name>ExpertListSpierTask</job-name>
+        <job-group>group1</job-group>
+        <cron-expression>0 00 21 ? * *</cron-expression>
+     </cron>
+    </trigger>
+</job>
+
+<!-- 将博客专家转化为作者表,距离上面只要10分钟即可 -->
+<job>
+    <job-detail>
+      <name>Expert2AuthorTask</name>
+      <group>group2</group>
+      <job-class>com.gaoyuan.timer.Expert2AuthorTask</job-class>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>Expert2AuthorTask</name>
+        <group>group2</group>
+        <job-name>Expert2AuthorTask</job-name>
+        <job-group>group2</job-group>
+        <cron-expression>0 20 21 ? * *</cron-expression>
+     </cron>
+    </trigger>
+</job>
+
+<!-- 根据作者表爬取相关博客 ：距离上面要20分钟以上最好-->
+<job>
+    <job-detail>
+      <name>Author2BlogListSpierTask</name>
+      <group>group3</group>
+      <job-class>com.gaoyuan.timer.Author2BlogListSpierTask</job-class>
+    </job-detail>
+    <trigger>
+      <cron>
+        <name>Author2BlogListSpierTask</name>
+        <group>group3</group>
+        <job-name>Author2BlogListSpierTask</job-name>
+        <job-group>group3</job-group>
+        <cron-expression>0 40 21 ? * *</cron-expression>
+     </cron>
+    </trigger>
+</job>
+</quartz>
