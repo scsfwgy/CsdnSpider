@@ -38,7 +38,7 @@ public class C3p0Utils extends BaseClass{
 		try {
 			cpds.setDriverClass("com.mysql.jdbc.Driver");
 			cpds.setJdbcUrl("jdbc:mysql://localhost:3306/csdndb");
-			// cpds.setJdbcUrl("jdbc:mysql://112.74.63.9:3306/spider_csdn");
+			// cpds.setJdbcUrl("jdbc:mysql://****:3306/spider_csdn");
 			cpds.setUser("root");
 			cpds.setPassword("123456");
 
